@@ -8,7 +8,7 @@ import { adminDataContext } from '../context/AdminContext'
 import { toast } from 'react-toastify'
 
 // Sold Copy By Eliteblaze , dev: Prayag kaushik
-function Nav() {
+function Nav({ toggleSidebar }) {
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   const navigate = useNavigate()
   const { serverUrl } = useContext(authDataContext)
@@ -39,6 +39,16 @@ function Nav() {
           className='flex items-center gap-3 cursor-pointer group transition-all duration-300 hover:opacity-80'
           onClick={() => navigate("/")}
         >
+          {/* Mobile menu button for smaller screens */}
+          <button 
+            onClick={toggleSidebar}
+            className='p-2 rounded-lg hover:bg-gray-100 lg:hidden mr-2'
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          
           {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
           <div className='w-10 h-10 bg-black rounded flex items-center justify-center group-hover:bg-gray-800 transition-colors duration-300'>
             <img 

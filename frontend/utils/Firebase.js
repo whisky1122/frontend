@@ -1,17 +1,22 @@
-import {getAuth, GoogleAuthProvider} from "firebase/auth"
+// Import the functions you need from the SDKs you need
+
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { initializeApp } from "firebase/app";
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_APIKEY ,
-  authDomain: "frozen-86760.firebaseapp.com",
-  projectId: "frozen-86760",
-  storageBucket: "frozen-86760.firebasestorage.app",
-  messagingSenderId: "810457794099",
-  appId: "1:810457794099:web:3defde325426ba2ad4c546"
+  apiKey: "AIzaSyDNoRQvVd2n70Mpd4h-faMMNYjPdRriErk",
+  authDomain: "zoyaelegance-b2a29.firebaseapp.com",
+  projectId: "zoyaelegance-b2a29",
+  storageBucket: "zoyaelegance-b2a29.firebasestorage.app",
+  messagingSenderId: "239615901164",
+  appId: "1:239615901164:web:6b7ab36e6399979b8d94c9"
 };
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
-const provider = new GoogleAuthProvider()
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-
-export {auth , provider}
+export {auth, provider};
 

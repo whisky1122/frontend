@@ -11,6 +11,7 @@ function Lists() {
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   const [list, setList] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const { serverUrl } = useContext(authDataContext)
 
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
@@ -53,6 +54,10 @@ function Lists() {
     }
   }
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen)
+  }
+
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   useEffect(() => {
     fetchList()
@@ -61,11 +66,23 @@ function Lists() {
   // Sold Copy By Eliteblaze , dev: Prayag kaushik
   return (
     <div className='min-h-screen bg-white text-black overflow-x-hidden relative font-serif'>
-      <Nav />
-      <Sidebar />
+      <Nav toggleSidebar={toggleSidebar} />
+      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      
+      {/* Mobile menu button */}
+      <div className="fixed top-20 left-4 z-30 lg:hidden">
+        <button 
+          onClick={toggleSidebar}
+          className="p-2 rounded-lg bg-white shadow-md border border-stone-200"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
       
       {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
-      <main className='ml-64 pt-[70px]'>
+      <main className={`pt-[70px] transition-all duration-300 ${isSidebarOpen ? 'lg:ml-64' : 'lg:ml-20'}`}>
         
         {/* Sold Copy By Eliteblaze , dev: Prayag kaushik */}
         <section className='py-16 px-6 bg-black text-white'>
